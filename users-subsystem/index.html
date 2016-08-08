@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<a href="main.html">Домой</a><br>
+		<input id="esse_text" type="text" name="d_data" value="Ente da tekst hie..">
+		<div id="log_viewer"></div>
+		<br>
+		<div id="pig">Развернуть развёртку
+		<ul id="pigmal">
+			<li>Платье</li>
+			<li>В горошек</li>
+			<li>Айя</li>
+		</ul></div><br>
+		<form name="akuna">
+		<select name="rumba" onchange="alert(this.value);">
+			<option value="Rock">Рок</option>
+			<option value="Blues" selected>Блюз</option>
+		</select>
+		</form>
+		<br>
+		<form>
+		<table>
+		  <tr>
+		  <td>От кого</td>
+		  <td><input name="from" type="text"><span class="warning_text"></span></td>
+		  </tr>
+		  <tr>
+		  <td>Ваш пароль</td>
+		  <td><input name="password" type="password"><span class="warning_text"></span></td>
+		  </tr>
+		  <tr>
+		  <td>Повторите пароль</td>
+		  <td><input name="password2" type="password"><span class="warning_text"></span></td>
+		  </tr>
+		  <tr>
+		  <td>Куда</td>
+		  <td>
+			<select name="to">
+			  <option></option>
+			  <option value="1">Отдел снабжения</option>
+			  <option value="2">Отдел разработки</option>
+			  <option value="3">Директору</option>
+			</select><span class="warning_text"></span>
+		  </td>
+		  </tr>
+		</table>
+
+		Сообщение:
+		<label>
+		<textarea name="message" style="display:block;width:400px;height:100px"></textarea><span class="warning_text"></span>
+		</label>
+
+		<input type="button" onclick="validate(this.form)" value="Проверить">
+		</form>
+
+		<script src="keyboarder.js">
+		</script>
+	</body>
+</html>

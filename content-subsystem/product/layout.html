@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Neptunio</title>
+	
+		<link type="text/css" rel="stylesheet" media="all" href="style.css" />
+		<!--[if lte IE 7]><link href="ie.css" rel="stylesheet" type="text/css" /><![endif]-->
+		<script src="jquery.js" type="text/javascript"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	
+	<body>
+	<!--
+		Фон заголовка и фон тела - что при изменении размера и в мобильной версии?
+	-->
+	<section class="container">
+		<header class="wide-strip">
+		</header>
+		<aside class="side-column">
+		</aside>
+		<nav class="side-column">
+		</nav>
+		<div class="breadcrumbs">Главная / Одежда / Для женщин / Платья</div>
+		<article class="product-card">
+			<div class="header"><h1>Мессалина</h1><span>442-4587-96</span></div>
+			<div class="images">
+				<div class="main"><img src="r\square-mdm.png"/></div>	<!-- Slider -->
+				<div class="colors"><img src="r\square-mn.png"/></div>	<!-- Slider -->
+			</div>
+			<div class="info"></div>
+			<div class="text-info"></div>
+			
+			<!--
+				Стрелочки навигации появляются при наведении указателя на слайдер. В мобильной версии - не нужен. Можно при загрузке сделать анимацию: "Оно движется! Тыкай пальцем!"
+				Содержимое можно "тянуть" в нужную сторону. По достижении конца - резинка / резинка с перескоком в начало / циклический
+				Вариант - активная картинка увеличивается, а слайдер смещается
+				Края контейнера слайдера полузатенены, так что очередная картинка не навязчиво выглядывает - и не мешает, и видно что она есть. Видимые слайды центрируются
+				Ресайз по горизонтали - меняем ширину, соблюдая центрирование. При существенном ресайзе можно менять высоту и размер слайдов
+				Скорость анимации и размер?
+			-->
+			<div id="slider">
+				<div class="left-arrow"></div>
+				<div class="right-arrow"></div>
+				<div class="slider-outer-box">
+					<div class="slider-box">
+						<div><img src="r\square-mn.png"></div>
+						<div><img src="r\square-mn.png"></div>
+						<div><img src="r\square-mn.png"></div>
+						<div><img src="r\square-mn.png"></div>
+						<div><img src="r\square-mn.png"></div>
+					</div>
+				</div>
+			</div>
+		</article>
+		<footer class="wide-strip">
+		</footer>
+		<div id="sticker">Comprehence</div>
+	</section>
+	</body>
+</html>

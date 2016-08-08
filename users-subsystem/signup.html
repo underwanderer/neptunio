@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<a href="index.html">Домой</a><br>
+		<form name="akuna">
+		<span>Ваше политическое кредо</span>
+		<select name="rumba" onchange="alert(this.value);">
+			<option> -- </option>
+			<option value="always">Всегда</option>
+			<option value="newer" selected>Никогда</option>
+			<option value="sometimes">Иноогда</option>
+		</select>
+		</form>
+		<form>
+		<table>
+		  <tr>
+		  <td>Использовать соцсети для авторизации</td>
+		  <td><a href="#">fb</a><a href="#">vk</a><a href="#">ok</a></td>
+		  </tr>
+		  или (в колонках?)
+		  <tr>
+		  <td>Электронная почта (будет использована в качестве имени)</td>
+		  <td><input name="email" type="text"><span class="warning_text"></span></td>
+		  </tr>
+		  <tr>
+		  <td>Хочу указать другое имя <input type="checkbox" name="name-specified"> </td>
+		  <td><input name="name" type="text"><span class="warning_text"></span></td>
+		  </tr>
+		  <tr>
+		  <td>Придумайте пароль чтобы никто другой не действовал от вашего имени</td>
+		  <td><input name="password" type="password"><span class="warning_text"></span></td>
+		  </tr>
+		  <tr>
+		  <td>Повторите пароль, чтобы не ошибиться</td>
+		  <td><input name="password2" type="password"><span class="warning_text"></span></td>
+		  </tr>
+		  Хочу сообщить о себе больше..
+		</table>
+
+		Возможно у вас есть пожелания по поводу регистрации. Изложите их здесь - менеджер увидит ваше сообщение и примет меры:
+		<label>
+		<textarea name="message"></textarea><span class="warning_text"></span>
+		</label>
+		
+		<div class="input-label">Фоточька</div>
+		<div class="input-element"><input type="file"></div>
+
+		<input type="button" onclick="validate(this.form)" value="Зарегистрироваться">
+		</form>
+
+		<script src="keyboarder.js">
+		</script>
+	</body>
+</html>
