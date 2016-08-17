@@ -1,0 +1,81 @@
+body {
+	font: 0.9em/1.2 Arial, Helvetica, sans-serif;
+	background-color: #c0c0c0;
+}
+
+header {
+	
+}
+aside {
+	width: 256px;
+	float: left;
+}
+nav {
+	width: 128px;
+	float: right;
+}
+article {
+	margin-left: 256px;
+	margin-right: 128px;
+	min-height: 192px;
+	background-color: #40c040;
+	/*width: 100% - 2*128px было бы неплохо*/
+}
+footer {
+
+}
+
+.wide-strip {
+	width: 100%;
+	height: 128px;
+	background-color: #4040c0;
+}
+.container {
+
+}
+
+.side-column {
+	min-height: 192px;
+	background-color: #fff;
+}
+
+.content {
+	background-color: #30b030;
+}
+
+/*
+ћ≈ƒ»ј«јѕ–ќ—џ. ≈сли подход€т оба, то, видимо, будет применЄн нижний - в соответствии с правилами  ј— јƒ»–ќ¬јЌ»я
+—оответствует ли handled только смартфонам и планшетам и всем ли?
+*/
+@media screen and ( orientation: portrait ), handheld and ( orientation: portrait ) {
+
+}
+
+/*Ўирина окна более 1366 (стандарт HD и выше), соотношение сторон окна более 16/9 (это более и равно или только более ?), альбомное располоение*/
+@media screen and ( min-width: 1366px ) and ( min-aspect-ratio: 16/9 ) and ( orientation: landscape ) {
+
+}
+/*—оотношение сторон окна более 4/3 (но менее 16/9, поскольку подход€т оба, но данный ниже в коде, иначе сработал бы первый ?), ширина окна менее 800
+@media screen and ( min-aspect-ratio: 4/3 ) and ( max-width: 800px ) {
+	aside {display: none;}
+}*/
+
+/*Ўирокое окно (в рабочей версии шире 1280, дл€ молодых экранов) - добавл€ем фон*/
+@media screen and ( min-width: 1280px ) {
+	body {background-color: #20c020;}
+}
+/*”зкое окно - убираем боковую колонку*/
+@media screen and ( max-width: 800px ) {
+	aside {display: none;}
+	article {width: 80%;margin-left: 0;}
+}
+/*ѕланшет или смартфон с шириной экрана до 600px (дл€ универсальности можно использовать размер окна, а не экрана) при альбомной ориентации*/
+@media handheld and ( max-device-width: 600px ) and ( orientation: landscape ) {
+	aside {display: none;}
+	article {width: 80%;margin-left: 0;}
+}
+/*ѕланшет или смартфон с шириной экрана до 480px при портретной ориентации*/
+@media all and ( max-device-width: 480px ) and ( orientation: portrait ) {
+	aside {display: none;}
+	article {width: 80%;margin-left: 0;}
+}

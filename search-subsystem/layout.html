@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Neptunio - search</title>
+	
+		<link type="text/css" rel="stylesheet" media="all" href="style.css" />
+		<!--[if lte IE 7]><link href="ie.css" rel="stylesheet" type="text/css" /><![endif]-->
+		<script src="jquery.js" type="text/javascript"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	
+	<body>
+	<section class="container">
+		<header class="wide-strip">
+		</header>
+		<aside class="side-column">
+		</aside>
+		<nav class="side-column">
+		</nav>
+		<article>
+			<div id="search-options">
+			<form name="search-filter">
+			<!-- value для checkbox ?? -->
+				<input type='text' name='keywords' value="Ищем..." size="32" src="r/kw-tf-img.png">
+				<input id="sale" type='checkbox' name='sale' value="Акционный" src="r/sele-cb-img.png"><label for="sale">Акционный</label>
+				<input id='newcollection' type='checkbox' name='newcollection' value="Новая коллекция" src="r/newcollection-cb-img.png"><label for="newcollection">Новая коллекция</label>
+				<label><span id="min-range-label">Цена: 0</span><input style="vertical-align: top; margin: 0 1em 0" type='range' name='price' min="0" max="1024" step="2" value="512" src="r/price-rn-img.png"><span id="max-range-label">1024</span></label>
+				
+				<div>Древовидный список категорий с множественным выбором</div>
+				<select name="themes" multiple size="3">
+						<option>Тема 1</option>
+						<option>Тема 2</option>
+						<option>Тема 3</option>
+						<option>Тема 4</option>
+						<option>Тема 5</option>
+				</select>
+				<select name="groups" multiple size="3">
+						<option>Группа 1</option>
+						<option>Группа 2</option>
+						<option>Группа 3</option>
+						<option>Группа 4</option>
+						<option>Группа 5</option>
+				</select>
+				<select name="colors" multiple size="3">
+						<option>Цвет 1</option>
+						<option>Цвет 2</option>
+						<option>Цвет 3</option>
+						<option>Цвет 4</option>
+						<option>Цвет 5</option>
+				</select>
+				<select name="sizes" multiple size="3">
+						<option>Размер 1</option>
+						<option>Размер 2</option>
+						<option>Размер 3</option>
+						<option>Размер 4</option>
+						<option>Размер 5</option>
+				</select>
+			</form>
+			</div>
+			
+			<div id="search-results">
+				<div class="searched-item"><a href='#'><img src="r\square-mdm.png"><ul><li>Product name!</li><li>Product sku</li><li>69.99</li><li><a href='#category'>Product category</a></li><li><a href='#group'>Product group</a></li><li><a href='#theme'>Product theme</a></li><li><a href='#collection'>Product collection</a></li></ul></div>
+				<div class="searched-item"><a href='#'><img src="r\square-mdm.png"><span><a href='#'>This nice product name and short desc!<br/>Product sku<br/>69.99<br/><a href='#'>Product category</a><br/><a href='#'>Product group</a><br/><a href='#'>Product theme</a><br/><a href='#'>Product collection</a></span></div>
+				<div class="searched-item"><a href='#'><img src="r\square-mdm.png"><span><a href='#'>Product name!<br/>Product sku<br/>69.99<br/><a href='#'>Product category</a><br/><a href='#'>Product group</a><br/><a href='#'>Product theme</a><br/><a href='#'>Product collection</a></span></div>
+				<div class="searched-item"><a href='#'><img src="r\square-mdm.png"><span><a href='#'>Product name!<br/>Product sku<br/>69.99<br/><a href='#'>Product category</a><br/><a href='#'>Product group</a><br/><a href='#'>Product theme</a><br/><a href='#'>Product collection</a></span></div>
+				<div class="searched-item"><a href='#'><img src="r\square-mdm.png"><span><a href='#'>Product name!<br/>Product sku<br/>69.99<br/><a href='#'>Product category</a><br/><a href='#'>Product group</a><br/><a href='#'>Product theme</a><br/><a href='#'>Product collection</a></span></div>
+				<div class="searched-item"><a href='#'><img src="r\square-mdm.png"><span><a href='#'>Product name!<br/>Product sku<br/>69.99<br/><a href='#'>Product category</a><br/><a href='#'>Product group</a><br/><a href='#'>Product theme</a><br/><a href='#'>Product collection</a></span></div>
+				<div class="searched-item"><a href='#'><img src="r\square-mdm.png"><span><a href='#'>Product name!<br/>Product sku<br/>69.99<br/><a href='#'>Product category</a><br/><a href='#'>Product group</a><br/><a href='#'>Product theme</a><br/><a href='#'>Product collection</a></span></div>
+				<div class="searched-item"><a href='#'><img src="r\square-mdm.png"><span><a href='#'>Wery long product name and description with blackjak and whores on moon!<br/>Product sku<br/>69.99<br/><a href='#'>Product category</a><br/><a href='#'>Product group</a><br/><a href='#'>Product theme</a><br/><a href='#'>Product collection</a></span></div>
+				<div class="searched-item"><a href='#'><img src="r\square-mdm.png"><span><a href='#'>Product name!<br/>Product sku<br/>69.99<br/><a href='#'>Product category</a><br/><a href='#'>Product group</a><br/><a href='#'>Product theme</a><br/><a href='#'>Product collection</a></span></div>
+				<div class="searched-item"><a href='#'><img src="r\square-mdm.png"><span><a href='#'>Product name!<br/>Product sku<br/>69.99<br/><a href='#'>Product category</a><br/><a href='#'>Product group</a><br/><a href='#'>Product theme</a><br/><a href='#'>Product collection</a></span></div>
+			</div>
+			
+			<div style="clear: both;"></div>
+			<div id="slider">
+				<div class="left-arrow"></div>
+				<div class="right-arrow"></div>
+				<div class="slider-outer-box">
+					<div class="slider-box">
+						<div><img src="r\square-mn.png"></div>
+						<div><img src="r\square-mn.png"></div>
+						<div><img src="r\square-mn.png"></div>
+						<div><img src="r\square-mn.png"></div>
+						<div><img src="r\square-mn.png"></div>
+					</div>
+				</div>
+			</div>
+		</article>
+		<footer class="wide-strip">
+		</footer>
+		<div id="sticker">Comprehence</div>
+	</section>
+	</body>
+</html>
