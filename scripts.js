@@ -159,7 +159,9 @@ function Animate ( element, sequenceFunction, changeFunction ) {
 		
 		self .go ( d, s );
 	}
-	//Изменить значение на величину des в соответствии с последовательностью seq 
+	//Изменить значение на величину des в соответствии с последовательностью seq
+	//des может быть отрицательной
+	//Что делать если des == 0 (???)
 	this .go = function ( des, seq ) {
 	
 		desired = des;
@@ -170,7 +172,7 @@ function Animate ( element, sequenceFunction, changeFunction ) {
 			basic = changeFunction ( element );
 		}
 		
-		if ( state == GO_STATE ) {	//!! Можно упростить
+		if ( state == GO_STATE ) {	//TODO Можно упростить - просто не устанавливать фазу если одноимённое состояние
 			phaze = findNearestPhaze ( sequence );
 		}
 		
@@ -227,7 +229,7 @@ function Animate ( element, sequenceFunction, changeFunction ) {
 }
 
 /*
-	f has to return values in range 0 to 1
+	Function f has to return values in range 0 to 1
 	Further functions preffixed with "sequence" are to be used as an argument
 */
 Animate .createSequence = function ( f, PHAZE_COUNT ) {
@@ -263,6 +265,9 @@ Animate .sequenceDiv = function ( element ) {
 	return s;
 }
 
+//Следующие функции инкапсулируют код изменения параметров, тех которые скорее всего могут участвовать в анимации
+//Их не обязательно размещать именно здесь и можно просто передавать соответствующий код в консоруктор аниматора
+//Главное чтобы функция принмала элемент и значение, а в случае отсутствия значения, возвращала текущее
 Animate .changeHeight = function ( element, value ) {
 	if (value === undefined) {	//Проверка !value даст ПРАВДУ при value == 0
 		return parseFloat ( CU .getStyle ( element ) .height );
