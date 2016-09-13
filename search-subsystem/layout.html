@@ -24,10 +24,13 @@
 			<div id="search-options">
 			<form name="search-filter">
 			<!-- value для checkbox ?? -->
-				<input type='text' name='keywords' value="Ищем..." size="32" src="r/kw-tf-img.png">
+				<input type='text' name='keywords' placeholder="Ищем..." autocomplete class="search-field">
 				<input id="sale" type='checkbox' name='sale' value="Акционный" src="r/sele-cb-img.png"><label for="sale">Акционный</label>
 				<input id='newcollection' type='checkbox' name='newcollection' value="Новая коллекция" src="r/newcollection-cb-img.png"><label for="newcollection">Новая коллекция</label>
-				<label><span id="min-range-label">Цена: 0</span><input style="vertical-align: top; margin: 0 1em 0" type='range' name='price' min="0" max="1024" step="2" value="512" src="r/price-rn-img.png"><span id="max-range-label">1024</span></label>
+				<!-- label><span id="min-range-label">Цена: 0</span><input style="vertical-align: top; margin: 0 1em 0" type='range' name='price' min="0" max="1024" step="2" value="512" src="r/price-rn-img.png"><span id="max-range-label">1024</span></label -->
+				<br/>
+				<label for="min-price">Цена:</label><input id="min-price" type="text" name="min-price">
+				<label for="max-price">-</label><input id="max-price" type="text" name="max-price">
 				
 				<div>Древовидный список категорий с множественным выбором</div>
 				<select name="themes" multiple size="3">
@@ -44,13 +47,13 @@
 						<option>Группа 4</option>
 						<option>Группа 5</option>
 				</select>
-				<select name="colors" multiple size="3">
-						<option>Цвет 1</option>
-						<option>Цвет 2</option>
-						<option>Цвет 3</option>
-						<option>Цвет 4</option>
-						<option>Цвет 5</option>
-				</select>
+				<div class="multiple-items-chooser" id="color-chooser">
+						<input type="checkbox" name="colors" id="colors-1" value="Цвет 1"><label for="colors-1">Цвет 1</label>
+						<input type="checkbox" name="colors" id="colors-2" value="Цвет 2"><label for="colors-2">Цвет 2</label>
+						<input type="checkbox" name="colors" id="colors-3" value="Цвет 3"><label for="colors-3">Цвет 3</label>
+						<input type="checkbox" name="colors" id="colors-4" value="Цвет 4"><label for="colors-4"><img src="r\color-4.png"></label>
+						<input type="checkbox" name="colors" id="colors-5" value="Цвет 5"><label for="colors-5"><img src="r\color-5.png"></label>
+				</div>
 				<select name="sizes" multiple size="3">
 						<option>Размер 1</option>
 						<option>Размер 2</option>

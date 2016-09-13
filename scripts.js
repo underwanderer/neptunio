@@ -58,7 +58,7 @@ function createSticker ( elemId ) {
 		animator .go ( -1 );
 	};
 	sticker .onmouseout = function (  ) {
-		animator .back (  );
+		animator .back ( (Animate .createSequence ( Animate .sequenceS3Binom, 64 ))() );
 	};
 }
 
@@ -159,25 +159,30 @@ function Animate ( element, sequenceFunction, changeFunction ) {
 		
 		self .go ( d, s );
 	}
-	//Изменить значение на величину des в соответствии с последовательностью seq
-	//des может быть отрицательной
-	//Что делать если des == 0 (???)
+	/*
+		Изменить элемент посредством changeFunction на величину des в соответствии с последовательностью seq
+		Значение des может быть отрицательным. Последовательность seq должна быть восходящей. Некоторые
+		последовательности можно сформировать посредством статических функций sequence*
+	*/
 	this .go = function ( des, seq ) {
+		if ( des == 0 )
+			return;
 	
 		desired = des;
 		var sequence = seq || basicSequence;
-		phaze = 1;
 		
 		if ( state == DEFAULT_STATE ) {
+			phaze = 1;
 			basic = changeFunction ( element );
 		}
 		
-		if ( state == GO_STATE ) {	//TODO Можно упростить - просто не устанавливать фазу если одноимённое состояние
+		if ( state == GO_STATE && seq ) {
 			phaze = findNearestPhaze ( sequence );
 		}
 		
 		if ( state == BACK_STATE ) {
-			phaze = findNearestPhaze ( sequence );	//!! Find in another direction
+			if ( seq )
+				phaze = findNearestPhaze ( sequence );
 			CU .reset ( currentTimer );
 		}
 		state = GO_STATE;
@@ -194,14 +199,17 @@ function Animate ( element, sequenceFunction, changeFunction ) {
 	this .back = function ( seq ) {
 	
 		var sequence = seq || basicSequence;
-		phaze = sequence .length - 1;
+		if ( state == DEFAULT_STATE )
+			phaze = sequence .length - 1;
 		
-		if ( state == BACK_STATE ) {
+		if ( state == BACK_STATE && seq ) {
 			phaze = findNearestPhaze ( sequence );
 		}
 		
 		if ( state == GO_STATE ) {
-			phaze = findNearestPhaze ( sequence );
+			if ( seq ) {
+				phaze = findNearestPhaze ( sequence );
+			}
 			CU .reset ( currentTimer );
 		}
 		state = BACK_STATE;
@@ -215,14 +223,35 @@ function Animate ( element, sequenceFunction, changeFunction ) {
 			currentTimer = CU .shedule ( b );
 		}) (  );
 	};
-	
+
+	/*
+			First this performed a search of the next phaze of animation when event occures while animation
+		i. e. put a mouse over an element and out it in a moment. It was a bit strange from my side cause of
+		using phaze variable in the function code. Quite later, having some meditation, I had understood
+		the absurdity of situation and no longer use it
+			Besides, such approach has some problems, needed to be resolved, namely:
+		* values in the array can be descending, so we can`t simply compare that local current is bigger then current
+		* when we do backward animation we has to descend on the array
+			Writing this I`ve recalled the sence of finding phaze: it`s necessary while we can pass into go or back
+		function a sequence, differed of basic one, so it`s necessary to find in a new sequence a value, nearest
+		to a current for soft transition
+		
+			Thus the function do the following:
+		* finad the value in the new sequence that follows the current onerror
+		* get the next or previous item, dependent of state, making a little loop such way
+		* returns finded index
+		
+		Tip. We needn`t use different code for positive and negative desired variable, but if we decide to do
+		a DESCENDING SEQUENCE, the code has to be modified, so sequences for go and goTo should be ascending
+		until the code isn`t modified
+	*/
 	function findNearestPhaze ( s ) {
-		var p = s .length - 1;
+		var p = state == BACK_STATE ? s .length - 1 : (state == GO_STATE ? 0 : 0);
 		for ( i = 0; i < s .length; i++ ) {
-			//А если я хочу уменьшать значение... И как быть в обратном направлении... Нужно очередное или ближайшее значение?
-			if ( s [i] >= basicSequence [phaze] )
-				p = i;
+			if ( s [i] >= basicSequence [phaze] ) {
+				p = state == BACK_STATE ? i-1 : (state == GO_STATE ? i+1 : 0 );
 				break;
+			}
 		}
 		return p;
 	}
